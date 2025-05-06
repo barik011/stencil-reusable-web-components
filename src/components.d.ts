@@ -20,6 +20,18 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface StnButton {
+        "disabled": boolean;
+        "icon": boolean;
+        "label": string;
+        "size": 'small' | 'medium' | 'large';
+        "type": 'button' | 'submit';
+        "variant": 'primary' | 'secondary' | 'outline' | 'danger';
+    }
+}
+export interface StnButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLStnButtonElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +40,26 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLStnButtonElementEventMap {
+        "buttonClicked": void;
+    }
+    interface HTMLStnButtonElement extends Components.StnButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLStnButtonElementEventMap>(type: K, listener: (this: HTMLStnButtonElement, ev: StnButtonCustomEvent<HTMLStnButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLStnButtonElementEventMap>(type: K, listener: (this: HTMLStnButtonElement, ev: StnButtonCustomEvent<HTMLStnButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLStnButtonElement: {
+        prototype: HTMLStnButtonElement;
+        new (): HTMLStnButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "stn-button": HTMLStnButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +77,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface StnButton {
+        "disabled"?: boolean;
+        "icon"?: boolean;
+        "label"?: string;
+        "onButtonClicked"?: (event: StnButtonCustomEvent<void>) => void;
+        "size"?: 'small' | 'medium' | 'large';
+        "type"?: 'button' | 'submit';
+        "variant"?: 'primary' | 'secondary' | 'outline' | 'danger';
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "stn-button": StnButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +96,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "stn-button": LocalJSX.StnButton & JSXBase.HTMLAttributes<HTMLStnButtonElement>;
         }
     }
 }

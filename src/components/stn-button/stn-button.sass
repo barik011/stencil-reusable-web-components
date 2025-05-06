@@ -1,0 +1,44 @@
+:host{
+    --btn-icon:url('/assets/cancel.svg');
+}
+button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Size variations */
+.small { font-size: 14px; padding: 8px 16px; }
+.medium { font-size: 16px; padding: 10px 20px; }
+.large { font-size: 18px; padding: 12px 24px; }
+
+/* Button Variants */
+.primary { background-color: #007bff; color: white; }
+.primary:hover { background-color: #0056b3; }
+
+.secondary { background-color: #6c757d; color: white; }
+.secondary:hover { background-color: #545b62; }
+
+.outline { background-color: transparent; border: 2px solid #007bff; color: #007bff; }
+.outline:hover { background-color: #007bff; color: white; }
+
+.danger { background-color: #dc3545; color: white; }
+.danger:hover { background-color: #b52b38; }
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Icon Styling */
+.button-icon {
+  width: 20px;
+  height: 20px;
+  background:var(--btn-icon);
+}
