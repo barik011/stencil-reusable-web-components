@@ -7,12 +7,14 @@
     --modal-size:600px;
     --header-bg:#3a0620;
     --modal-fz:1rem;
-    --modal-body-height:400px;
+    --modal-body-height:300px;
     --footer-align:flex-end;
     --footer-bg:#eee;
     --footer-button-gap:10px;
     --modal-body-padding:10px;
     --modal-body-overflowY:auto;
+
+    --modal-body-height-mobile:150px;
 }
 .btn-close{
     background:var(--close-icon);
@@ -86,4 +88,19 @@
 }
 .is-open .modal{
     transform: translate(-50%,90px);
+}
+@media (max-width:600px) {
+    .modal-wrapper .modal{       
+        width: 100%;
+        bottom: 0;  
+        height: auto;      
+        transform: translate(-50%,100%);
+        transition: visibility 0s linear .25s,opacity .25s 0s, transform .25s;
+    }
+    .modal-wrapper .modal .modal-body{
+        max-height:var(--modal-body-height-mobile);
+    }
+    .is-open .modal{
+        transform: translate(-50%,0);
+    }
 }
