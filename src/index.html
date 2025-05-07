@@ -16,7 +16,7 @@
   <!-- <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component> -->
   <div class="container">
     <!-- Stencil Button Example -->
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-12">
         <h4>Stencil Reusable Button Component</h4>
         <div class="d-flex justify-content-start align-items-center gap-4">
@@ -25,12 +25,13 @@
           <stn-button label="Delete" variant="danger" size="large"></stn-button>
         </div>
       </div>
-    </div> -->
+    </div>
 
 
     <div class="row">
       <div class="col-12">
-        <button type="button" onClick="openModal()">Open Modal</button>
+        <h4>Stencil Reusable Modal Component</h4>
+        <stn-button onClick="openModal()" label="Open Modal"  variant="primary"></stn-button>
         <stn-modal header-title="My Custome Header" buttons='[{"text":"Save"},{"text":"Cancel"}]'>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
