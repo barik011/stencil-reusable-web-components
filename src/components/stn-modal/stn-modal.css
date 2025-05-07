@@ -11,6 +11,8 @@
     --footer-align:flex-end;
     --footer-bg:#eee;
     --footer-button-gap:10px;
+    --modal-body-padding:10px;
+    --modal-body-overflowY:auto;
 }
 .btn-close{
     background:var(--close-icon);
@@ -63,9 +65,9 @@
 }
 .modal-wrapper .modal .modal-body{
     font-size: var(--modal-fz);
-    padding: 10px;
+    padding: var(--modal-body-padding);
     max-height: var(--modal-body-height);
-    overflow-y: auto;
+    overflow-y: var(--modal-body-overflowY);
 }
 .modal-wrapper .modal .modal-footer{
     display: flex;
