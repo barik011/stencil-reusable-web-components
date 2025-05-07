@@ -15,8 +15,8 @@ button {
 }
 
 /* Size variations */
-.small { font-size: 14px; padding: 8px 16px; }
-.medium { font-size: 16px; padding: 10px 20px; }
+.small { font-size: 12px; padding: 4px 10px; }
+.medium { font-size: 14px; padding: 8px 16px; }
 .large { font-size: 18px; padding: 12px 24px; }
 
 /* Button Variants */

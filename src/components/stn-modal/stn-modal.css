@@ -1,0 +1,87 @@
+
+:host{
+    --close-icon:url('/assets/close.svg');
+    --overlay:rgba(0, 0, 0, .6);
+    --modal-bg:#fff;
+    --modal-radius:4px;
+    --modal-size:600px;
+    --header-bg:#3a0620;
+    --modal-fz:1rem;
+    --modal-body-height:400px;
+    --footer-align:flex-end;
+    --footer-bg:#eee;
+    --footer-button-gap:10px;
+}
+.btn-close{
+    background:var(--close-icon);
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    height: 20px;
+    width: 20px;
+}
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;    
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear .25s, opacity .25s 0s, transform .25s;
+    z-index: 10;
+}
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay);
+}
+.modal-wrapper .modal{
+    position: absolute;
+    background-color: var(--modal-bg);
+    border-radius: var(--modal-radius);
+    width: var(--modal-size);
+    height: auto;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%,0);
+    transition: visibility 0s linear .25s,opacity .25s 0s, transform .25s;
+}
+.modal-wrapper .modal .modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: var(--header-bg);
+}
+.modal-wrapper .modal .modal-header .modal-title{
+    margin: 0;
+    font-size: 1.75rem;
+    color: #fff;
+}
+.modal-wrapper .modal .modal-body{
+    font-size: var(--modal-fz);
+    padding: 10px;
+    max-height: var(--modal-body-height);
+    overflow-y: auto;
+}
+.modal-wrapper .modal .modal-footer{
+    display: flex;
+    justify-content: var(--footer-align);
+    align-items: center;
+    column-gap: var(--footer-button-gap);
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: var(--footer-bg);
+}
+
+.is-open{
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0s linear .25s,opacity .25s 0s, transform .25s;
+}
+.is-open .modal{
+    transform: translate(-50%,90px);
+}

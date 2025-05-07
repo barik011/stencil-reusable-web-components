@@ -5,7 +5,7 @@ import { Component, Prop, h,Event, EventEmitter } from '@stencil/core';
   styleUrl: 'stn-button.css',
   shadow: true,
 })
-export class MyButton {
+export class StnButton {
   @Prop() label: string = 'Click Me';
   @Prop() type: 'button' | 'submit' = 'button';
   @Prop() disabled: boolean = false;

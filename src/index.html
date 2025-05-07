@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/stencil-reusable-web-components.esm.js"></script>
-    <script nomodule src="/build/stencil-reusable-web-components.js"></script>
-  </head>
-  <body>
-    <!-- <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component> -->
-    <!-- Primary Button -->
-    <stn-button label="Submit" icon="true" variant="primary"></stn-button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
 
-    <!-- Outline Button with Icon -->
-    <stn-button label="Download"  variant="outline"></stn-button>
+  <script type="module" src="/build/stencil-reusable-web-components.esm.js"></script>
+  <script nomodule src="/build/stencil-reusable-web-components.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Large Danger Button -->
-    <stn-button label="Delete" variant="danger" size="large"></stn-button>
+</head>
 
-  </body>
+<body>
+  <!-- <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component> -->
+  <div class="container">
+    <!-- Stencil Button Example -->
+    <!-- <div class="row">
+      <div class="col-12">
+        <h4>Stencil Reusable Button Component</h4>
+        <div class="d-flex justify-content-start align-items-center gap-4">
+          <stn-button label="Submit" size="small" icon="true" variant="primary"></stn-button>
+          <stn-button label="Download" variant="outline"></stn-button>
+          <stn-button label="Delete" variant="danger" size="large"></stn-button>
+        </div>
+      </div>
+    </div> -->
 
-  <script>
-    document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
-      console.log("Submit Button Clicked !");
-    });
 
-    document.querySelector('stn-button[label="Download"]').addEventListener('action', () => {
-      console.log("Download Button Clicked !");
-    });
+    <div class="row">
+      <div class="col-12">
+        <button type="button" onClick="openModal()">Open Modal</button>
+        <stn-modal header-title="My Custome Header" buttons='[{"text":"Save"},{"text":"Cancel"}]'>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
+        </stn-modal>
+      </div>
+    </div>
+  </div>
 
-  </script>
+
+</body>
+
+<script>
+  // document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
+  //   console.log("Submit Button Clicked !");
+  // });
+
+  // document.querySelector('stn-button[label="Download"]').addEventListener('action', () => {
+  //   console.log("Download Button Clicked !");
+  // });
+  const modal=document.querySelector("stn-modal");
+    function openModal(){
+      modal.isOpen=true;
+    }
+
+    modal.addEventListener('action',function(){
+      console.log("Action Button Call");
+    })
+</script>
+
 </html>
