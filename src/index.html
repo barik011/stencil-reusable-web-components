@@ -14,10 +14,21 @@
     <stn-button label="Submit" icon="true" variant="primary"></stn-button>
 
     <!-- Outline Button with Icon -->
-    <stn-button label="Download" variant="outline"></stn-button>
+    <stn-button label="Download"  variant="outline"></stn-button>
 
     <!-- Large Danger Button -->
     <stn-button label="Delete" variant="danger" size="large"></stn-button>
 
   </body>
+
+  <script>
+    document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
+      console.log("Submit Button Clicked !");
+    });
+
+    document.querySelector('stn-button[label="Download"]').addEventListener('action', () => {
+      console.log("Download Button Clicked !");
+    });
+
+  </script>
 </html>

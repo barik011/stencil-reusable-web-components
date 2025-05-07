@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { EventEmitter } from "@stencil/core";
+export { EventEmitter } from "@stencil/core";
 export namespace Components {
     interface MyComponent {
         /**
@@ -21,6 +23,7 @@ export namespace Components {
         "middle": string;
     }
     interface StnButton {
+        "action": EventEmitter<void>;
         "disabled": boolean;
         "icon": boolean;
         "label": string;
@@ -41,7 +44,7 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLStnButtonElementEventMap {
-        "buttonClicked": void;
+        "action": void;
     }
     interface HTMLStnButtonElement extends Components.StnButton, HTMLStencilElement {
         addEventListener<K extends keyof HTMLStnButtonElementEventMap>(type: K, listener: (this: HTMLStnButtonElement, ev: StnButtonCustomEvent<HTMLStnButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -78,10 +81,11 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface StnButton {
+        "action"?: EventEmitter<void>;
         "disabled"?: boolean;
         "icon"?: boolean;
         "label"?: string;
-        "onButtonClicked"?: (event: StnButtonCustomEvent<void>) => void;
+        "onAction"?: (event: StnButtonCustomEvent<void>) => void;
         "size"?: 'small' | 'medium' | 'large';
         "type"?: 'button' | 'submit';
         "variant"?: 'primary' | 'secondary' | 'outline' | 'danger';

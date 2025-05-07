@@ -2,7 +2,7 @@ import { Component, Prop, h,Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'stn-button',
-  styleUrl: 'stn-button.sass',
+  styleUrl: 'stn-button.css',
   shadow: true,
 })
 export class MyButton {
@@ -12,13 +12,16 @@ export class MyButton {
   @Prop() icon: boolean = false; // Icon URL
   @Prop() variant: 'primary' | 'secondary' | 'outline' | 'danger' = 'primary';
   @Prop() size: 'small' | 'medium' | 'large' = 'medium';
+  @Prop({
+        mutable:true,
+        reflect:true,
+        })                            
 
-
-  @Event() buttonClicked: EventEmitter<void>; // Custom event
+  @Event({ bubbles: true, composed: true }) action: EventEmitter<void>; // Custom event
 
   handleClick() {
     if (!this.disabled) {
-      this.buttonClicked.emit(); // Emit event when clicked
+      this.action.emit(); // Emit event when clicked
     }
   }
 
@@ -28,8 +31,7 @@ export class MyButton {
         type={this.type} 
         disabled={this.disabled} 
         class={`${this.variant} ${this.size}`}
-        onClick={() => this.handleClick()}>
-           
+        onClick={() => this.handleClick()}>           
         {this.icon && <span class="button-icon"></span>}
         {this.label}
       </button>
