@@ -40,6 +40,14 @@
     </div>
   </div>
 
+  <stn-right-offcanvas 
+  modal-title="Confirmation"
+  width="500px"
+  footer-buttons='[{"label": "Cancel", "type": "secondary"}, {"label": "Confirm", "type": "primary"}]'>
+</stn-right-offcanvas>
+
+
+<stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
 
 </body>
 
@@ -59,6 +67,14 @@
     modal.addEventListener('action',function(){
       console.log("Action Button Call");
     })
+    const sideModal =document.querySelector('stn-right-offcanvas')
+    function openSideModal(){
+      sideModal.openModal();
+    }
+    document.querySelector('stn-right-offcanvas').addEventListener('buttonClicked', (event) => {
+    console.log("Button Clicked:", event.detail);
+  });
+
 </script>
 
 </html>
