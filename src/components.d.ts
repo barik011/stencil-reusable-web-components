@@ -29,10 +29,11 @@ export namespace Components {
         "label": string;
         "size": 'small' | 'medium' | 'large';
         "type": 'button' | 'submit';
-        "variant": 'primary' | 'secondary' | 'outline' | 'danger';
+        "variant": 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'light' | 'link' | 'outline' | 'danger';
     }
     interface StnModal {
         "buttons": string;
+        "customeClass": string;
         "headerTitle": string;
         "isOpen": boolean;
     }
@@ -115,10 +116,11 @@ declare namespace LocalJSX {
         "onAction"?: (event: StnButtonCustomEvent<void>) => void;
         "size"?: 'small' | 'medium' | 'large';
         "type"?: 'button' | 'submit';
-        "variant"?: 'primary' | 'secondary' | 'outline' | 'danger';
+        "variant"?: 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'light' | 'link' | 'outline' | 'danger';
     }
     interface StnModal {
         "buttons"?: string;
+        "customeClass"?: string;
         "headerTitle"?: string;
         "isOpen"?: boolean;
         "onAction"?: (event: StnModalCustomEvent<void>) => void;

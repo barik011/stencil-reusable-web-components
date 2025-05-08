@@ -14,6 +14,8 @@ export class StnModal {
 }) 
 @Prop() buttons:string
 
+@Prop() customeClass:string
+
 @State() _buttons:Array<any>
 
 arrayDataWatcher(buttons){
@@ -52,7 +54,7 @@ private actionModal=()=>{
             </div>
             <div class="modal-footer">
               {this._buttons.map((button)=>{
-                return <button onClick={()=>button.text=='Cancel'?this.closeModal():this.actionModal()}>{button.text}</button>
+                return <button class={`btn ${button.class}`} onClick={()=>button.text=='Cancel'?this.closeModal():this.actionModal()}>{button.text}</button>
               })}
             </div>
           </div>

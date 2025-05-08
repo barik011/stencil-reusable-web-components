@@ -10,7 +10,7 @@ export class StnButton {
   @Prop() type: 'button' | 'submit' = 'button';
   @Prop() disabled: boolean = false;
   @Prop() icon: boolean = false; // Icon URL
-  @Prop() variant: 'primary' | 'secondary' | 'outline' | 'danger' = 'primary';
+  @Prop() variant: 'primary' | 'secondary' | 'success' | 'warning' | 'info' | 'light' | 'link' | 'outline' | 'danger' = 'primary';
   @Prop() size: 'small' | 'medium' | 'large' = 'medium';
   @Prop({
         mutable:true,
