@@ -15,21 +15,21 @@
 
     --modal-body-height-mobile: 150px;
 
-    --btn-bg-primary: #333;
-    --btn-color-primary:#333;
-    --btn-bg-primary-hover:#333;
+    --btn-bg-primary: #1370fa;
+    --btn-color-primary:#fff;
+    --btn-bg-primary-hover:#065ad8;
 
-    --btn-bg-secondary:#333;
-    --btn-color-secondary:#333;
-    --btn-bg-secondary-hover:#333;
+    --btn-bg-secondary:#dfdfdf;
+    --btn-color-secondary:#333333;
+    --btn-bg-secondary-hover:#adb5bd;
 
-    --btn-bg-outline:#333;
-    --btn-bg-outline-hover:#333;
-    --btn-color-outline-hover:#333;
+    --btn-bg-outline:#fd7e14;
+    --btn-bg-outline-hover:#fff;
+    --btn-color-outline-hover:#fd7e14;
 
-    --btn-bg-danger:#333;
-    --btn-color-danger:#333;
-    --btn-bg-danger-hover:#333;
+    --btn-bg-danger:#dc3545;
+    --btn-color-danger:#fff;
+    --btn-bg-danger-hover:#dc3545;
 }
 
 .btn-close {
@@ -39,6 +39,7 @@
     background-color: transparent;
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
 .modal-wrapper {
