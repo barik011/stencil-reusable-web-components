@@ -142,7 +142,7 @@
     animation: slide-out-right .5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-@-webkit-keyframes slide-in-right {
+@-webkit-keyframes slide-out-right {
     0% {
         -webkit-transform: translateX(0px);
         transform: translateX(0);
@@ -154,7 +154,7 @@
         opacity: 0;
     }
 }
-@keyframes slide-in-right {
+@keyframes slide-out-right {
     0% {
         -webkit-transform: translateX(0px);
         transform: translateX(0);

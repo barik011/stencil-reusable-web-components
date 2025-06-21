@@ -50,10 +50,17 @@
 <stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
 
 </body>
-<stn-modal-slide header-title="Left Side Modal">
-  <div slot="header"></div>
+<stn-modal-slide headerTitle="Left Side Modal" id="slidemodal" showFooter="false">
+  <div slot="modal-content">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis dolorum illo, doloremque accusamus quia harum molestiae expedita vero repellat facere voluptates soluta rerum repellendus voluptatibus, iusto ducimus reiciendis consectetur blanditiis.
+  </div>
 </stn-modal-slide>
 <script>
+
+  customElements.whenDefined('stn-modal-slide').then(()=>{
+    const slidemodal= document.getElementById('slidemodal');
+    slidemodal.openModal();
+  })
   // document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
   //   console.log("Submit Button Clicked !");
   // });

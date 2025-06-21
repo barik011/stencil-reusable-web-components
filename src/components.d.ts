@@ -45,12 +45,6 @@ export namespace Components {
         "openModal": () => Promise<void>;
         "showFooter": boolean;
     }
-    interface StnRightOffcanvas {
-        "closeButton": boolean;
-        "footerButtons": { label: string, type: string }[];
-        "modalTitle": string;
-        "width": string;
-    }
 }
 export interface StnButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -63,10 +57,6 @@ export interface StnModalCustomEvent<T> extends CustomEvent<T> {
 export interface StnModalSlideCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLStnModalSlideElement;
-}
-export interface StnRightOffcanvasCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLStnRightOffcanvasElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -127,31 +117,11 @@ declare global {
         prototype: HTMLStnModalSlideElement;
         new (): HTMLStnModalSlideElement;
     };
-    interface HTMLStnRightOffcanvasElementEventMap {
-        "modalClosed": void;
-        "modalOpened": void;
-        "buttonClicked": string;
-    }
-    interface HTMLStnRightOffcanvasElement extends Components.StnRightOffcanvas, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLStnRightOffcanvasElementEventMap>(type: K, listener: (this: HTMLStnRightOffcanvasElement, ev: StnRightOffcanvasCustomEvent<HTMLStnRightOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLStnRightOffcanvasElementEventMap>(type: K, listener: (this: HTMLStnRightOffcanvasElement, ev: StnRightOffcanvasCustomEvent<HTMLStnRightOffcanvasElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLStnRightOffcanvasElement: {
-        prototype: HTMLStnRightOffcanvasElement;
-        new (): HTMLStnRightOffcanvasElement;
-    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "stn-button": HTMLStnButtonElement;
         "stn-modal": HTMLStnModalElement;
         "stn-modal-slide": HTMLStnModalSlideElement;
-        "stn-right-offcanvas": HTMLStnRightOffcanvasElement;
     }
 }
 declare namespace LocalJSX {
@@ -193,21 +163,11 @@ declare namespace LocalJSX {
         "onConfirm"?: (event: StnModalSlideCustomEvent<void>) => void;
         "showFooter"?: boolean;
     }
-    interface StnRightOffcanvas {
-        "closeButton"?: boolean;
-        "footerButtons"?: { label: string, type: string }[];
-        "modalTitle"?: string;
-        "onButtonClicked"?: (event: StnRightOffcanvasCustomEvent<string>) => void;
-        "onModalClosed"?: (event: StnRightOffcanvasCustomEvent<void>) => void;
-        "onModalOpened"?: (event: StnRightOffcanvasCustomEvent<void>) => void;
-        "width"?: string;
-    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "stn-button": StnButton;
         "stn-modal": StnModal;
         "stn-modal-slide": StnModalSlide;
-        "stn-right-offcanvas": StnRightOffcanvas;
     }
 }
 export { LocalJSX as JSX };
@@ -218,7 +178,6 @@ declare module "@stencil/core" {
             "stn-button": LocalJSX.StnButton & JSXBase.HTMLAttributes<HTMLStnButtonElement>;
             "stn-modal": LocalJSX.StnModal & JSXBase.HTMLAttributes<HTMLStnModalElement>;
             "stn-modal-slide": LocalJSX.StnModalSlide & JSXBase.HTMLAttributes<HTMLStnModalSlideElement>;
-            "stn-right-offcanvas": LocalJSX.StnRightOffcanvas & JSXBase.HTMLAttributes<HTMLStnRightOffcanvasElement>;
         }
     }
 }
