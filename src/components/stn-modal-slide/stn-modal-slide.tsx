@@ -38,11 +38,11 @@ export class StnModalSlide{
     render(){
         return (
             <div class={{'modal':true, 'show-modal' :this.showModal}}>
-                <div class={{'modal-content':true, [this.animationState]:true}}>
+                <div class={{'modal-content':true, [this.animationState]: true}}>
                     <slot name="header"></slot>
                     <div class="modal-header">
                         <div class="header-text">{this.headerTitle}</div>
-                        {this.isConfirm ? <span class="close-button" onClick={()=>this.confirmModal()}>&nbsp;</span>:<span class='close-button'></span>}
+                        {this.isConfirm ? <span class="close-button" onClick={()=>this.confirmModal()}>&nbsp;</span>:<span class='close-button' onClick={()=>this.closeModal()}>&nbsp;</span>}
                     </div>
 
                     <div class="modal-body">

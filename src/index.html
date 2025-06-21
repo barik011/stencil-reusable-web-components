@@ -48,9 +48,11 @@
 
 
 <stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
-<stn-modal-slide ></stn-modal-slide>
-</body>
 
+</body>
+<stn-modal-slide header-title="Left Side Modal">
+  <div slot="header"></div>
+</stn-modal-slide>
 <script>
   // document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
   //   console.log("Submit Button Clicked !");
