@@ -48,7 +48,7 @@
 
 
 <stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
-
+<stn-modal-slide></stn-modal-slide>
 </body>
 
 <script>
@@ -76,6 +76,11 @@
   //   document.querySelector('stn-right-offcanvas').addEventListener('buttonClicked', (event) => {
   //   console.log("Button Clicked:", event.detail);
   // });
+
+  const modal=document.querySelector("stn-modal-slide");
+    function openSideModal(){
+      modal.openModal();
+    }
 
 </script>
 
