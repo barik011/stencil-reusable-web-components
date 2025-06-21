@@ -18,16 +18,16 @@
     <div class="row">
       <div class="col-12">
         <h4>Stencil Reusable Button Component</h4>
-        <div class="d-flex justify-content-start align-items-center gap-4">
+        <!-- <div class="d-flex justify-content-start align-items-center gap-4">
           <stn-button  label="Submit" size="small" icon="true" variant="primary"></stn-button>
           <stn-button label="Download" variant="outline"></stn-button>
           <stn-button label="Delete" variant="danger" size="large"></stn-button>
-        </div>
+        </div> -->
       </div>
     </div>
 
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12">
         <h4>Stencil Reusable Modal Component</h4>
         <stn-button onClick="openModal()" label="Open Modal"  variant="primary"></stn-button>
@@ -37,14 +37,14 @@
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
         </stn-modal>
       </div>
-    </div>
+    </div> -->
   </div>
 
-  <stn-right-offcanvas 
+  <!-- <stn-right-offcanvas 
   modal-title="Confirmation"
   width="500px"
   footer-buttons='[{"label": "Cancel", "type": "secondary"}, {"label": "Confirm", "type": "primary"}]'>
-</stn-right-offcanvas>
+</stn-right-offcanvas> -->
 
 
 <stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
@@ -59,21 +59,23 @@
   // document.querySelector('stn-button[label="Download"]').addEventListener('action', () => {
   //   console.log("Download Button Clicked !");
   // });
-  const modal=document.querySelector("stn-modal");
-    function openModal(){
-      modal.isOpen=true;
-    }
 
-    modal.addEventListener('action',function(){
-      console.log("Action Button Call");
-    })
-    const sideModal =document.querySelector('stn-right-offcanvas')
-    function openSideModal(){
-      sideModal.openModal();
-    }
-    document.querySelector('stn-right-offcanvas').addEventListener('buttonClicked', (event) => {
-    console.log("Button Clicked:", event.detail);
-  });
+
+  // const modal=document.querySelector("stn-modal");
+  //   function openModal(){
+  //     modal.isOpen=true;
+  //   }
+
+  //   modal.addEventListener('action',function(){
+  //     console.log("Action Button Call");
+  //   })
+  //   const sideModal =document.querySelector('stn-right-offcanvas')
+  //   function openSideModal(){
+  //     sideModal.openModal();
+  //   }
+  //   document.querySelector('stn-right-offcanvas').addEventListener('buttonClicked', (event) => {
+  //   console.log("Button Clicked:", event.detail);
+  // });
 
 </script>
 
