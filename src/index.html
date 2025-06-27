@@ -12,84 +12,70 @@
 </head>
 
 <body>
-  <!-- <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component> -->
   <div class="container">
-    <!-- Stencil Button Example -->
     <div class="row">
       <div class="col-12">
-        <h4>Stencil Reusable Button Component</h4>
-        <!-- <div class="d-flex justify-content-start align-items-center gap-4">
-          <stn-button  label="Submit" size="small" icon="true" variant="primary"></stn-button>
-          <stn-button label="Download" variant="outline"></stn-button>
-          <stn-button label="Delete" variant="danger" size="large"></stn-button>
-        </div> -->
+        <h4>Stencil Reusable Button Component</h4>        
       </div>
     </div>
-
-
-    <!-- <div class="row">
-      <div class="col-12">
-        <h4>Stencil Reusable Modal Component</h4>
-        <stn-button onClick="openModal()" label="Open Modal"  variant="primary"></stn-button>
-        <stn-modal header-title="My Custome Header" buttons='[{"text":"Save","class":"primary"},{"text":"Cancel","class":"secondary"}]'>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt illum accusantium nostrum molestiae magni corrupti deserunt nobis esse, placeat, facere quas rem expedita molestias ipsam temporibus. Explicabo, dignissimos dolore.</p>
-        </stn-modal>
-      </div>
-    </div> -->
   </div>
 
-  <!-- <stn-right-offcanvas 
-  modal-title="Confirmation"
-  width="500px"
-  footer-buttons='[{"label": "Cancel", "type": "secondary"}, {"label": "Confirm", "type": "primary"}]'>
-</stn-right-offcanvas> -->
-
-
-<stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
-
-</body>
+<!-- On Button Click Slide Modal Open -->
+<!-- <stn-button onClick="openSideModal()" label="Open Modal"  variant="primary"></stn-button>
 <stn-modal-slide headerTitle="Left Side Modal" id="slidemodal" showFooter="false">
   <div slot="modal-content">
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis dolorum illo, doloremque accusamus quia harum molestiae expedita vero repellat facere voluptates soluta rerum repellendus voluptatibus, iusto ducimus reiciendis consectetur blanditiis.
   </div>
-</stn-modal-slide>
+</stn-modal-slide> -->
+
+
+<!-- On Button Click Center Modal Open -->
+<!-- <stn-button onClick="openCenterModal()" label="Open Modal"  variant="primary"></stn-button>
+<stn-modal-center headerTitle="Center Modal" id="centermodal" showFooter="false">
+  <div slot="modal-content">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis dolorum illo, doloremque accusamus quia harum molestiae expedita vero repellat facere voluptates soluta rerum repellendus voluptatibus, iusto ducimus reiciendis consectetur blanditiis.
+  </div>
+  <div slot="modal-footer">
+    <stn-button onClick="openCenterModal()" label="Submit"  variant="danger"></stn-button>
+  </div>
+</stn-modal-center> -->
+
+<!-- On Button Click Bottom Modal Open -->
+<stn-button onClick="openCenterModal()" label="Open Modal"  variant="primary"></stn-button>
+<stn-modal-bottom headerTitle="Center Modal" id="centermodal" showFooter="false">
+  <div slot="modal-content">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis dolorum illo, doloremque accusamus quia harum molestiae expedita vero repellat facere voluptates soluta rerum repellendus voluptatibus, iusto ducimus reiciendis consectetur blanditiis.
+  </div>
+  <div slot="modal-footer">
+    <stn-button onClick="openCenterModal()" label="Submit"  variant="danger"></stn-button>
+  </div>
+</stn-modal-bottom>
+</body>
+
 <script>
-
-  customElements.whenDefined('stn-modal-slide').then(()=>{
-    const slidemodal= document.getElementById('slidemodal');
-    slidemodal.openModal();
-  })
-  // document.querySelector('stn-button[label="Submit"]').addEventListener('action', () => {
-  //   console.log("Submit Button Clicked !");
-  // });
-
-  // document.querySelector('stn-button[label="Download"]').addEventListener('action', () => {
-  //   console.log("Download Button Clicked !");
-  // });
-
-
-  // const modal=document.querySelector("stn-modal");
-  //   function openModal(){
-  //     modal.isOpen=true;
-  //   }
-
-  //   modal.addEventListener('action',function(){
-  //     console.log("Action Button Call");
-  //   })
-  //   const sideModal =document.querySelector('stn-right-offcanvas')
+  // /*****By Default Slide Modal Open****/
+  // customElements.whenDefined('stn-modal-slide').then(()=>{
+  //   const slidemodal= document.getElementById('slidemodal');
+  //   slidemodal.openModal();
+  // })
+  // /*****On Button Click Slide Modal Open****/
+  // const modal=document.querySelector("stn-modal-slide");
   //   function openSideModal(){
-  //     sideModal.openModal();
-  //   }
-  //   document.querySelector('stn-right-offcanvas').addEventListener('buttonClicked', (event) => {
-  //   console.log("Button Clicked:", event.detail);
-  // });
+  //     modal.openModal();
+  // }
 
-  const modal=document.querySelector("stn-modal-slide");
-    function openSideModal(){
+
+/*****Center Modal Open****/
+  // const modal=document.querySelector("stn-modal-center");
+  //   function openCenterModal(){
+  //     modal.openModal();
+  // }
+
+  /*****Bottom Modal Open****/
+  const modal=document.querySelector("stn-modal-bottom");
+    function openCenterModal(){
       modal.openModal();
-    }
+  }
 
 </script>
 

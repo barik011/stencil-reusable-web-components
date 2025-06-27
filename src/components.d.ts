@@ -37,6 +37,18 @@ export namespace Components {
         "headerTitle": string;
         "isOpen": boolean;
     }
+    interface StnModalBottom {
+        "closeModal": () => Promise<void>;
+        "headerTitle": string;
+        "openModal": () => Promise<void>;
+        "showFooter": boolean;
+    }
+    interface StnModalCenter {
+        "closeModal": () => Promise<void>;
+        "headerTitle": string;
+        "openModal": () => Promise<void>;
+        "showFooter": boolean;
+    }
     interface StnModalSlide {
         "closeModal": () => Promise<void>;
         "confirmModal": () => Promise<void>;
@@ -53,6 +65,14 @@ export interface StnButtonCustomEvent<T> extends CustomEvent<T> {
 export interface StnModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLStnModalElement;
+}
+export interface StnModalBottomCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLStnModalBottomElement;
+}
+export interface StnModalCenterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLStnModalCenterElement;
 }
 export interface StnModalSlideCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -99,6 +119,40 @@ declare global {
         prototype: HTMLStnModalElement;
         new (): HTMLStnModalElement;
     };
+    interface HTMLStnModalBottomElementEventMap {
+        "close": void;
+    }
+    interface HTMLStnModalBottomElement extends Components.StnModalBottom, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLStnModalBottomElementEventMap>(type: K, listener: (this: HTMLStnModalBottomElement, ev: StnModalBottomCustomEvent<HTMLStnModalBottomElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLStnModalBottomElementEventMap>(type: K, listener: (this: HTMLStnModalBottomElement, ev: StnModalBottomCustomEvent<HTMLStnModalBottomElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLStnModalBottomElement: {
+        prototype: HTMLStnModalBottomElement;
+        new (): HTMLStnModalBottomElement;
+    };
+    interface HTMLStnModalCenterElementEventMap {
+        "close": void;
+    }
+    interface HTMLStnModalCenterElement extends Components.StnModalCenter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLStnModalCenterElementEventMap>(type: K, listener: (this: HTMLStnModalCenterElement, ev: StnModalCenterCustomEvent<HTMLStnModalCenterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLStnModalCenterElementEventMap>(type: K, listener: (this: HTMLStnModalCenterElement, ev: StnModalCenterCustomEvent<HTMLStnModalCenterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLStnModalCenterElement: {
+        prototype: HTMLStnModalCenterElement;
+        new (): HTMLStnModalCenterElement;
+    };
     interface HTMLStnModalSlideElementEventMap {
         "close": void;
         "confirm": void;
@@ -121,6 +175,8 @@ declare global {
         "my-component": HTMLMyComponentElement;
         "stn-button": HTMLStnButtonElement;
         "stn-modal": HTMLStnModalElement;
+        "stn-modal-bottom": HTMLStnModalBottomElement;
+        "stn-modal-center": HTMLStnModalCenterElement;
         "stn-modal-slide": HTMLStnModalSlideElement;
     }
 }
@@ -156,6 +212,16 @@ declare namespace LocalJSX {
         "isOpen"?: boolean;
         "onAction"?: (event: StnModalCustomEvent<void>) => void;
     }
+    interface StnModalBottom {
+        "headerTitle"?: string;
+        "onClose"?: (event: StnModalBottomCustomEvent<void>) => void;
+        "showFooter"?: boolean;
+    }
+    interface StnModalCenter {
+        "headerTitle"?: string;
+        "onClose"?: (event: StnModalCenterCustomEvent<void>) => void;
+        "showFooter"?: boolean;
+    }
     interface StnModalSlide {
         "headerTitle"?: string;
         "isConfirm"?: boolean;
@@ -167,6 +233,8 @@ declare namespace LocalJSX {
         "my-component": MyComponent;
         "stn-button": StnButton;
         "stn-modal": StnModal;
+        "stn-modal-bottom": StnModalBottom;
+        "stn-modal-center": StnModalCenter;
         "stn-modal-slide": StnModalSlide;
     }
 }
@@ -177,6 +245,8 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "stn-button": LocalJSX.StnButton & JSXBase.HTMLAttributes<HTMLStnButtonElement>;
             "stn-modal": LocalJSX.StnModal & JSXBase.HTMLAttributes<HTMLStnModalElement>;
+            "stn-modal-bottom": LocalJSX.StnModalBottom & JSXBase.HTMLAttributes<HTMLStnModalBottomElement>;
+            "stn-modal-center": LocalJSX.StnModalCenter & JSXBase.HTMLAttributes<HTMLStnModalCenterElement>;
             "stn-modal-slide": LocalJSX.StnModalSlide & JSXBase.HTMLAttributes<HTMLStnModalSlideElement>;
         }
     }
